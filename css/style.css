@@ -4,6 +4,7 @@
     box-sizing: border-box;
 }
 
+
 /* Custom Properties, update these for your own design */
 
 :root {
@@ -35,6 +36,7 @@
     }
 }
 
+
 /* General styles */
 
 body {
@@ -63,6 +65,7 @@ strong {
     outline: 3px solid var(--clr-accent);
     outline-offset: 3px;
 }
+
 
 /* Typography */
 
@@ -102,6 +105,13 @@ h3 { font-size: var(--fs-h3) }
     padding: .25em 1em;
 }
 
+.section__subtitle--work {
+    margin-bottom: 2em;
+    color: var(--clr-accent);
+    font-weight: var(--fw-bold);
+}
+
+
 /* Buttons */
 
 .btn {
@@ -122,11 +132,13 @@ h3 { font-size: var(--fs-h3) }
     transform: scale(1.1);
 }
 
+
 /* Navigation */
 
 nav {
     display: none;
 }
+
 
 /* Intro */
 
@@ -167,6 +179,7 @@ nav {
         width: calc(100% + 1.5em);
     }
 }
+
 
 /* My Services */
 
@@ -215,3 +228,58 @@ nav {
         margin-left: 2.5em;
     }
 }
+
+
+/* About Me */
+
+.about-me {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.about-me__img {
+    box-shadow: var(--bs);
+}
+
+@media (min-width: 550px) {
+    .about-me {
+        display: grid;
+        grid-template-areas: 
+            "title image"
+            "subtitle image"
+            "text image";
+        grid-template-columns: 1fr 200px;
+        grid-column-gap: 2em;;
+    }
+
+    .about-me__img {
+        grid-area: image;
+        position: relative;
+        z-index: 2;
+    }
+
+    .section__subtitle--about {
+        grid-column: 1 / -1;
+        grid-row: 2;
+        position: relative;
+        left: -1em;
+        width: calc(100% + 2em);
+        padding-right: calc(200px + 3em);
+    }
+}
+
+
+/* My Work */
+
+.my-work {
+    background-color: var(--clr-dark);
+    color: var(--clr-light);
+    text-align: center;
+}
+
+.portfolio {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    grid-gap: .5em;
+}
+
