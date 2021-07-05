@@ -182,12 +182,13 @@ header {
     text-decoration: none;
     font-weight: var(--fw-bold);
     font-size: calc(.7 * var(--fs-h2));
+    color: var(--clr-light);
 }
 
 .nav__link:hover,
 .nav__link:focus {
-    color: var(--clr-light);
-    transition: color 250ms cubic-bezier(.5, 0, .5, 1);
+    color: var(--clr-accent);
+    transition: color 200ms linear;
 }
 
 .nav-toggle {
@@ -466,4 +467,23 @@ header {
 
 .social-list__link:hover {
     opacity: .5;
+}
+
+
+/* Portfolio Item page */
+
+.portfolio-item-individual {
+    padding: 0 2em 2em;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.portfolio-item-individual p {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.portfolio-item-individual p:first-child {
+    margin-top: 0;
 }
