@@ -150,7 +150,7 @@ header {
 }
 
 .logo {
-    max-width: 150px;
+    max-width: 250px;
 }
 
 .nav {
@@ -459,14 +459,25 @@ header {
 
 .social-list__item {
     padding: 0 .5em;
+    /* border: 1px blueviolet solid; */
 }
 
 .social-list__link {
     padding: .5em;
+    /* border: 1px peachpuff solid; */
 }
 
 .social-list__link:hover {
     opacity: .5;
+}
+
+.social-list__svg {
+    padding: 0;
+    margin: 0;
+    /* border: 1px red solid; */
+    display: inline-block;
+    width: 30px;
+    padding-top: .15em;
 }
 
 
