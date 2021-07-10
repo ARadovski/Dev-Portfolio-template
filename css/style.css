@@ -27,7 +27,7 @@
             .125em .125em .25em rgba(0,0,0,.15);
 }
 
-@media (min-width: 800px) {
+@media (min-width: 960px) {
     :root {
         --fs-h1: 4.5rem;
         --fs-h2: 3.75rem;
@@ -111,12 +111,6 @@ h3 { font-size: var(--fs-h3) }
     font-family: var(--ff-secondary);
     margin-bottom: 1em;
     padding: .25em 1em;
-}
-
-.section__subtitle--work {
-    margin-bottom: 2em;
-    color: var(--clr-accent);
-    font-weight: var(--fw-bold);
 }
 
 
@@ -269,7 +263,7 @@ header {
     box-shadow: var(--bs);
 }
 
-@media (min-width: 600px) {
+@media (min-width: 760px) {
     .intro {
         display: grid;
         width: min-content;
@@ -283,9 +277,13 @@ header {
 
     .intro__img {
         grid-area: img;
-        min-width: 250px;
+        min-width: 300px;
         position: relative;
         z-index: 2;
+    }
+
+    .intro__img--stereoh {
+        min-width: 350px;
     }
 
     .section__subtitle--intro {
@@ -360,14 +358,14 @@ header {
     box-shadow: var(--bs);
 }
 
-@media (min-width: 550px) {
+@media (min-width: 870px) {
     .about-me {
         display: grid;
         grid-template-areas: 
             "title image"
             "subtitle image"
             "text image";
-        grid-template-columns: 1fr 200px;
+        grid-template-columns: 1fr 330px;
         grid-column-gap: 2em;;
     }
 
@@ -392,13 +390,19 @@ header {
 
 .my-work {
     background-color: var(--clr-dark);
-    color: var(--clr-light);
+    color: var(--clr-accent);
     text-align: center;
+}
+
+.section__subtitle--work {
+    margin-bottom: 2em;
+    color: var(--clr-light);
+    font-weight: var(--fw-bold);
 }
 
 .portfolio {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     grid-gap: .5em;
 }
 
@@ -497,4 +501,27 @@ header {
 
 .portfolio-item-individual p:first-child {
     margin-top: 0;
+}
+
+.vimeo-frame {
+    padding:216.7% 0 0 0;
+    position:relative;
+}
+
+.vimeo-player {
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+}
+
+@media (min-width: 500px) {
+    .vimeo-frame {
+        max-width: 600px;
+        padding: 350px 0;
+        margin: 2em auto;
+        background-color: var(--clr-accent);
+        box-shadow: var(--bs);
+    }
 }
