@@ -69,9 +69,11 @@ a {
     color: var(--clr-accent);
 }
 
-:focus {
-    outline: 2px solid var(--clr-accent);
-    outline-offset: 3px;
+@media (min-width: 900px) {
+    :focus {
+        outline: 2px solid var(--clr-accent);
+        outline-offset: 3px;
+    }
 }
 
 
@@ -177,6 +179,7 @@ header {
     font-weight: var(--fw-bold);
     font-size: calc(.7 * var(--fs-h2));
     color: var(--clr-light);
+    display: none;
 }
 
 .nav__link:hover,
@@ -188,12 +191,17 @@ header {
 .nav-toggle {
     background: transparent;
     border: none;
-    padding: .5em;
+    padding: 1em;
     cursor: pointer;
     position: absolute;
-    top: 1em;
-    right: 1em;
+    top: 2em;
+    right: 1.5em;
     z-index: 1000;
+}
+
+.nav-toggle:hover,
+.nav-toggle:focus {
+    outline: none;
 }
 
 .hamburger {
@@ -210,7 +218,8 @@ header {
     border-radius: 1em;
     transition: 
         transform .25s linear,
-        background-color .5s linear;
+        background-color .5s linear,
+        opacity .25s linear;
 }
 
 .hamburger::before,
@@ -221,8 +230,28 @@ header {
     right: 0;
 }
 
-.hamburger::before {top: 9px}
-.hamburger::after {bottom: 9px}
+.hamburger::before {top: 12px}
+.hamburger::after {bottom: 12px}
+
+.nav-toggle:hover .hamburger,
+.nav-toggle:hover .hamburger::before,
+.nav-toggle:hover .hamburger::after,
+.nav-toggle:focus .hamburger,
+.nav-toggle:focus .hamburger::before,
+.nav-toggle:focus .hamburger::after {
+    background-color: var(--clr-accent);
+}
+
+.nav-toggle:hover .hamburger,
+.nav-toggle:focus .hamburger {
+    transform: scale(1.3);   
+}
+
+.nav-open .nav-toggle:hover .hamburger,
+.nav-open .nav-toggle:focus .hamburger {
+    /* background-color: var(--clr-light); */
+    transform: scale(1.3);
+}
 
 .nav-open .nav{
     transform: translateX(0%);
@@ -232,25 +261,33 @@ header {
     position: fixed;
 }
 
-.nav-open .hamburger,
-.nav-open .hamburger::before,
-.nav-open .hamburger::after {
-    background-color: var(--clr-accent);
-}
-
-.nav-open .hamburger {
-    transform: rotate(.625turn);
-}
-
-.nav-open .hamburger::before {
-    transform: rotate(90deg) translateX(-9px);
-}
-
 .nav-open .hamburger::after {
     opacity:0;
 }
 
-/* !!autofocus!!    */
+.nav-open .hamburger,
+.nav-open .hamburger::before,
+.nav-open .hamburger::after {
+    background-color: var(--clr-light);
+}
+
+.nav-open .hamburger {
+    transform: scale(1) rotate(.625turn);
+}
+
+.nav-open .nav-toggle:focus .hamburger,
+.nav-open .nav-toggle:hover .hamburger {
+    transform: rotate(.625turn) scale(1.4);
+}
+
+.nav-open .nav-toggle:focus .hamburger::before,
+.nav-open .hamburger::before {
+    transform: rotate(90deg) translateX(-12px);
+}
+
+.nav-open .nav__link {
+    display: inline-block;
+}
 
 
 /* Intro */
@@ -475,14 +512,14 @@ header {
     opacity: .5;
 }
 
-.social-list__svg {
+/* .social-list__svg {
     padding: 0;
     margin: 0;
-    /* border: 1px red solid; */
+    border: 1px red solid;
     display: inline-block;
     width: 30px;
     padding-top: .15em;
-}
+} */
 
 
 /* Portfolio Item page */
